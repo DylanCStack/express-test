@@ -8,8 +8,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res) {
-  res.send('You are trying to access media id: ' + req.params.id);
-  // res.send(mediaController.getURL(req.params.id));
+  // res.send('You are trying to access media id: ' + req.params.id);
+  mediaController.getURL(req.params.id, function(err, rows){
+    res.send(JSON.stringify(rows));
+  });
 });
 
 module.exports = router;
