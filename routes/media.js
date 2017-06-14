@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res) {
   // res.send('You are trying to access media id: ' + req.params.id);
   mediaController.getURL(req.params.id, function(err, rows){
-    res.send(JSON.stringify(rows));
+    res.send(rows[0]['url']);
   });
 });
 
